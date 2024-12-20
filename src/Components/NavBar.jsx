@@ -50,16 +50,16 @@ const NavBar = () => {
           <div className="flex-shrink-0 flex items-center">
             {/* Desktop view */}
             <div className="hidden lg:flex items-center">
-              <img className="h-8 w-auto" src={Icon} alt="Logo Icon" />
+            <a href="/"><img className="h-8 w-auto" src={Icon} alt="Logo Icon" /> </a>
               <span className="text-gray-700 font-thin text-4xl px-4">l</span>
-              <span className="text-gray-700 font-semibold text-md">Trail Lesson [Grade 1-3]</span>
+              <span className="text-gray-700 font-semibold text-base">Trail Lesson [Grade 3-7]</span>
             </div>
             {/* Mobile view */}
-            <img 
+            <a href="/"><img 
               className="lg:hidden h-8 w-auto" 
               src="https://www.codingal.com/resources/wp-content/uploads/2021/03/Codingal-logo-with-text.svg" 
               alt="Codingal Logo" 
-            />
+            /></a>
           </div>
           
           {/* Desktop menu */}
