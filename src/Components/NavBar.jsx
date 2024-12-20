@@ -88,7 +88,7 @@ const NavBar = () => {
 
       {/* Mobile menu, show/hide based on menu state */}
       <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-lg p-8 flex flex-col justify-start">
+        <div className="fixed right-0 max-w-xs w-full  bg-white shadow-lg px-8 py-4 flex flex-col justify-start rounded-md">
           <div className="flex items-center justify-between">
             <span className="font-semibold text-xl"></span>
             <button
@@ -99,7 +99,7 @@ const NavBar = () => {
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="mt-6 flex flex-col space-y-4 ">
+          <div className="mt-0 flex flex-col space-y-4 ">
             <div className="text-gray-700 font-bold text-lg text-center">{formatTime(timeLeft)}</div>
             <button
               onClick={handleEndSession}

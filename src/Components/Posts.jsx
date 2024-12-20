@@ -45,21 +45,25 @@ const Posts = () => {
     ['data', dataType],
     dataType === 'posts' ? fetchPosts : fetchPassengers,
     {
-      getNextPageParam: (lastPage) => 
-        dataType === 'posts'
-          ? lastPage.nextPage <= lastPage.totalPages ? lastPage.nextPage : undefined
-          : lastPage.totalPages > lastPage.page ? lastPage.page + 1 : undefined,
+      getNextPageParam: (lastPage) => lastPage.nextPage <= lastPage.totalPages ? lastPage.nextPage : undefined,
     }
   )
-
   const handleScroll = (e) => {
     const { scrollTop, clientHeight, scrollHeight } = e.currentTarget
-    if (scrollHeight - scrollTop <= clientHeight * 1.5) {
+    if (scrollHeight - scrollTop <= clientHeight * 1.5 && hasNextPage && !isFetchingNextPage) {
       fetchNextPage()
     }
   }
 
-  if (status === 'loading') return <div className="text-center">Loading...</div>
+  if (status === 'loading') return (
+    <div className="flex justify-center items-center h-screen">
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+        className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full"
+      />
+    </div>
+  );
   if (status === 'error') return <div className="text-center text-red-500">Error: {error.message}</div>
 
   return (
