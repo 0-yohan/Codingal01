@@ -33,7 +33,6 @@ const NavBar = () => {
 
   const handleConfirmEndSession = (reason) => {
     console.log("Session ended with reason:", reason);
-    // Implement your logic for ending the session here
   };
 
   const formatTime = (seconds) => {
@@ -86,7 +85,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      {/* Mobile menu, show/hide based on menu state */}
+      {/* Mobile menu */}
       <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
         <div className="fixed right-0 max-w-xs w-full  bg-white shadow-lg px-8 py-4 flex flex-col justify-start rounded-md">
           <div className="flex items-center justify-between">
