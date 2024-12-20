@@ -68,7 +68,7 @@ const NavBar = () => {
               onClick={handleEndSession}
               className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"
             >
-              End Session
+              End Class
             </button>
           </div>
 
@@ -104,7 +104,7 @@ const NavBar = () => {
               onClick={handleEndSession}
               className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
             >
-              End Session
+              End Class
             </button>
           </div>
         </div>
