@@ -105,7 +105,7 @@ const Posts = () => {
             <motion.span
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: 'linear'}}
-              className="inline-block w-12 h-12 border-4 border-blue-500 rounded-full"
+              className="inline-block w-8 h-8 border-t-4 border-blue-500 rounded-full"
             />
           </div>
         )}
