@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline';
+import EndSessionModal from './EndSessionModal';
 import Icon from '../assets/logo-christmas.png';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState(10 * 60); // 10 minutes in seconds
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -22,8 +24,16 @@ const NavBar = () => {
   }, []);
 
   const handleEndSession = () => {
-    // Implement end session logic here
-    console.log("Session ended");
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleConfirmEndSession = (reason) => {
+    console.log("Session ended with reason:", reason);
+    // Implement your logic for ending the session here
   };
 
   const formatTime = (seconds) => {
@@ -33,7 +43,8 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm">
+    <>
+    <nav className="bg-white shadow-sm z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
@@ -56,7 +67,7 @@ const NavBar = () => {
             <div className="text-gray-700 font-bold text-lg">{formatTime(timeLeft)}</div>
             <button
               onClick={handleEndSession}
-              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+              className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"
             >
               End Session
             </button>
@@ -100,6 +111,12 @@ const NavBar = () => {
         </div>
       </div>
     </nav>
+    <EndSessionModal
+    isOpen={isModalOpen}
+    onClose={handleCloseModal}
+    onEndSession={handleConfirmEndSession}
+  />
+  </>
   );
 };
 
